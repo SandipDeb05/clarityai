@@ -1,13 +1,20 @@
 .main__container {
   flex: 1;
   display: flex;
+  border-radius: 8px;
   flex-direction: column;
   padding: 16px;
   gap: 12px;
 }
 
+.heading__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .heading {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   color: #1f2937;
 }
@@ -64,4 +71,40 @@ button:hover {
   white-space: pre-wrap;
   max-height: 20rem;
   overflow-y: auto;
+}
+
+.loading__text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  background-color: #f3f3f3;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 10px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.close__btn {
+  font-size: 30px;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.close__btn:hover {
+  color: #e74c3c;
 }

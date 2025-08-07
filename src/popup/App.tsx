@@ -5,29 +5,58 @@ import "./popup.css";
 function App() {
   const [question, setQuestion] = useState<string>("");
   const [response, setResponse] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleTask = async () => {
+    setLoading(true);
+    setResponse("");
     chrome.runtime.sendMessage(
       { action: "FETCH_TAB_TEXT" },
       async (response) => {
-        const tabText = response.text;
-        const answer = await fetchAIResponse(question, tabText);
-        setResponse(answer);
+        try {
+          const tabText = response.text;
+          const answer = await fetchAIResponse(question, tabText);
+          setResponse(answer);
+        } catch (e) {
+          setResponse("An error occurred. Please try again.");
+        } finally {
+          setLoading(false);
+        }
       }
     );
   };
 
+  const handleClosePopup = () => {
+    window.close();
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter") {
+      handleTask();
+    }
+  };
+
   return (
     <main className="main__container">
-      <h2 className="heading">ClarityAI: Ask your assistant</h2>
+      <div className="heading__wrapper">
+        <h2 className="heading">ClarityAI: Your Web assistant</h2>
+        <div role="button" className="close__btn" onClick={handleClosePopup}>
+          &times;
+        </div>
+      </div>
       <textarea
         name="question"
         className="question__popup"
         placeholder="Feel free to ask for clarity."
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
+        onKeyDown={handleKeyDown}
       />
-      <button onClick={handleTask}>Get Clarity</button>
+      <button onClick={handleTask}>
+        {loading ? "Loading..." : "Get Clarity"}
+      </button>
+
+      {loading && <p className="loading__text">Fetching AI response...</p>}
 
       {response && (
         <div className="response__wrapper">
