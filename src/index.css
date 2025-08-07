@@ -1,0 +1,13 @@
+/* popup.css or global css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 360px;
+  padding: 16px;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #ffffff;
+}
