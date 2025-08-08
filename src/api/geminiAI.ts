@@ -18,28 +18,11 @@ export async function fetchGeminiAIResponse(question: string, tabText: string) {
   Avoid filler language or speculation. Prioritize clarity and relevance.`;
 
   const response: Response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-8b:generateContent`,
+    "https://clarity-ai-proxy.sandip-ai-proxy.workers.dev",
     {
       method: "POST",
-      headers: {
-        "x-goog-api-key": `${import.meta.env.VITE_GEMINI_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        contents: [
-          {
-            role: "user",
-            parts: [
-              {
-                text: prompt,
-              },
-            ],
-          },
-        ],
-        generationConfig: {
-          temperature: 0.7,
-        },
-      }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ prompt }),
     }
   );
 
