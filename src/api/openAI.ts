@@ -1,8 +1,11 @@
 export async function fetchOpenAIResponse(question: string, tabText: string) {
   if (!question || !tabText) return;
-  const limitedTabText = tabText?.split(/\s+/)?.slice(0, 100)?.join(" ");
+  const limitedTabText: string = tabText
+    ?.split(/\s+/)
+    ?.slice(0, 100)
+    ?.join(" ");
 
-  const prompt = `
+  const prompt: string = `
   You are ClarityAI, an intelligent assistant built into a Chrome extension. Your role is to help users understand or extract insights from the current webpage they are viewing.
   The user has asked the following question: "${question}"
   The content of the current web page is: "${limitedTabText}"
@@ -14,18 +17,21 @@ export async function fetchOpenAIResponse(question: string, tabText: string) {
   4. Output plain text only — no formatting, quotes, markdown, or extra characters.
   Avoid filler language or speculation. Prioritize clarity and relevance.`;
 
-  const response = await fetch(`https://api.openai.com/v1/chat/completions`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      model: "gpt-3.5-turbo",
-      message: [{ role: "user", content: prompt }],
-      temperature: 0.7,
-    }),
-  });
+  const response: Response = await fetch(
+    `https://api.openai.com/v1/chat/completions`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "gpt-3.5-turbo",
+        message: [{ role: "user", content: prompt }],
+        temperature: 0.7,
+      }),
+    }
+  );
 
   const data = await response.json();
   return data?.choices?.[0]?.message?.content || "Something went wrong";

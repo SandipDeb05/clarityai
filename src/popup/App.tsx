@@ -15,10 +15,10 @@ function App() {
       { action: "FETCH_TAB_TEXT" },
       async (response) => {
         try {
-          const tabText = response.text;
-          const answer = await fetchGeminiAIResponse(question, tabText);
+          const tabText: string = response.text;
+          const answer: string = await fetchGeminiAIResponse(question, tabText);
           setResponse(answer);
-        } catch (e) {
+        } catch (e: unknown) {
           setResponse("An error occurred. Please try again.");
         } finally {
           setLoading(false);
@@ -44,6 +44,7 @@ function App() {
           &times;
         </div>
       </div>
+
       <textarea
         name="question"
         className="question__popup"

@@ -1,8 +1,11 @@
 export async function fetchGeminiAIResponse(question: string, tabText: string) {
   if (!question || !tabText) return;
-  const limitedTabText = tabText?.split(/\s+/)?.slice(0, 100)?.join(" ");
+  const limitedTabText: string = tabText
+    ?.split(/\s+/)
+    ?.slice(0, 100)
+    ?.join(" ");
 
-  const prompt = `
+  const prompt: string = `
   You are ClarityAI, an intelligent assistant built into a Chrome extension. Your role is to help users understand or extract insights from the current webpage they are viewing.
   The user has asked the following question: "${question}"
   The content of the current web page is: "${limitedTabText}"
@@ -14,7 +17,7 @@ export async function fetchGeminiAIResponse(question: string, tabText: string) {
   4. Output plain text only — no formatting, quotes, markdown, or extra characters.
   Avoid filler language or speculation. Prioritize clarity and relevance.`;
 
-  const response = await fetch(
+  const response: Response = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-8b:generateContent`,
     {
       method: "POST",
