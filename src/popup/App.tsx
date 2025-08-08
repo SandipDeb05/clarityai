@@ -8,6 +8,7 @@ function App() {
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleTask = async () => {
+    if (!question?.trim()) return;
     setLoading(true);
     setResponse("");
     chrome.runtime.sendMessage(
@@ -31,9 +32,8 @@ function App() {
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === "Enter") {
-      handleTask();
-    }
+    if (e.key === "Enter") handleTask();
+    return;
   };
 
   return (
@@ -47,20 +47,21 @@ function App() {
       <textarea
         name="question"
         className="question__popup"
-        placeholder="Feel free to ask for clarity."
+        placeholder="What's on your mind?"
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
         onKeyDown={handleKeyDown}
+        autoFocus
       />
       <button onClick={handleTask}>
         {loading ? "Loading..." : "Get Clarity"}
       </button>
 
-      {loading && <p className="loading__text">Fetching AI response...</p>}
+      {loading && <p className="loading__text">Analyzing...</p>}
 
       {response && (
         <div className="response__wrapper">
-          <h3 className="response__title">ClarityAI Response</h3>
+          <h3 className="response__title">ClarityAI Insight</h3>
           <div className="response__popup">{response}</div>
         </div>
       )}

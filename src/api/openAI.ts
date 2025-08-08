@@ -11,6 +11,7 @@ export async function fetchAIResponse(question: string, tabText: string) {
   1. Under 60 words strictly.
   2. Concise and easy to understand.
   3. Focused strictly on the context of the tab.
+  4. Output plain text only — no formatting, quotes, markdown, or extra characters.
   Avoid filler language or speculation. Prioritize clarity and relevance.`;
 
   // const response = await fetch(`https://api.openai.com/v1/chat/completions`, {
