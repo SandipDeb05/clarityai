@@ -1,4 +1,4 @@
-export async function fetchOpenAIResponse(question: string, tabText: string) {
+export async function fetchGeminiAIResponse(question: string, tabText: string) {
   if (!question || !tabText) return;
   const limitedTabText = tabText?.split(/\s+/)?.slice(0, 100)?.join(" ");
 
@@ -14,19 +14,34 @@ export async function fetchOpenAIResponse(question: string, tabText: string) {
   4. Output plain text only — no formatting, quotes, markdown, or extra characters.
   Avoid filler language or speculation. Prioritize clarity and relevance.`;
 
-  const response = await fetch(`https://api.openai.com/v1/chat/completions`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      model: "gpt-3.5-turbo",
-      message: [{ role: "user", content: prompt }],
-      temperature: 0.7,
-    }),
-  });
+  const response = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-8b:generateContent`,
+    {
+      method: "POST",
+      headers: {
+        "x-goog-api-key": `${import.meta.env.VITE_GEMINI_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        contents: [
+          {
+            role: "user",
+            parts: [
+              {
+                text: prompt,
+              },
+            ],
+          },
+        ],
+        generationConfig: {
+          temperature: 0.7,
+        },
+      }),
+    }
+  );
 
   const data = await response.json();
-  return data?.choices?.[0]?.message?.content || "Something went wrong";
+  return (
+    data.candidates?.[0]?.content?.parts?.[0]?.text || "Something went wrong"
+  );
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchAIResponse } from "../api/openAI";
+import { fetchGeminiAIResponse } from "../api/geminiAI";
 import "./popup.css";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
       async (response) => {
         try {
           const tabText = response.text;
-          const answer = await fetchAIResponse(question, tabText);
+          const answer = await fetchGeminiAIResponse(question, tabText);
           setResponse(answer);
         } catch (e) {
           setResponse("An error occurred. Please try again.");
