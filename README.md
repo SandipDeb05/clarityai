@@ -1,69 +1,34 @@
-# React + TypeScript + Vite
+# ClarityAI - AI Powered Content Assistant
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-Available-brightgreen?logo=google-chrome)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-1.0.0-orange)](#)
+[![Made with AI](https://img.shields.io/badge/Made%20with-AI-purple)](#)
 
-Currently, two official plugins are available:
+Boost your productivity and understanding with our **AI-powered Chrome extension** — your intelligent companion for browsing.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Seamlessly interact with the content on any webpage and **make every page smarter, faster, and more engaging**.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Ask Questions** — Get instant, context-aware answers without leaving the page.
+- **Summarize Content** — Quickly distill long articles, research papers, or news into concise, actionable summaries.
+- **Explore Deeper** — Uncover related insights, explanations, and perspectives effortlessly.
+- **User-Friendly Interface** — Smooth and intuitive design for a seamless experience.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Use Cases
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Research** — Summarize and question academic papers, articles, or reports.
+- **Learning** — Quickly clarify concepts while studying online.
+- **News & Blogs** — Get instant highlights without reading lengthy pieces.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Final Note
+
+- ClarityAI is built with the mission to make information more accessible, concise, and insightful for everyone.
+- Whether you’re researching, learning, or staying informed — let ClarityAI help you work smarter, not harder.
