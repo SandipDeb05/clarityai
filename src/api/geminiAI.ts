@@ -6,16 +6,18 @@ export async function fetchGeminiAIResponse(question: string, tabText: string) {
     ?.join(" ");
 
   const prompt: string = `
-  You are ClarityAI, an intelligent assistant built into a Chrome extension. Your role is to help users understand or extract insights from the current webpage they are viewing.
+  You are ClarityAI, an intelligent assistant built into a Chrome extension. Your goal is to provide the most relevant and accurate answer to the user's query.
   The user has asked the following question: "${question}"
   The content of the current web page is: "${limitedTabText}"
-  Using only the provided page content, generate a clear, accurate, and helpful answer to the user's query. Do not make assumptions or include information not explicitly stated in the content.
-  Your response must be:
-  1. Under 60 words strictly.
-  2. Concise and easy to understand.
-  3. Focused strictly on the context of the tab.
-  4. Output plain text only — no formatting, quotes, markdown, or extra characters.
-  Avoid filler language or speculation. Prioritize clarity and relevance.`;
+  Using only the provided page content, generate a clear, accurate, and helpful answer to the user's query.
+  Instructions:
+ 1. If the question can be answered without page content (e.g., general knowledge like "2+2"), answer directly.
+ 2. If the question relates to the current page, prioritize using the page content for accuracy.
+ 3. Keep the answer under 60 words.
+ 4. Make it concise, clear, and directly answer the question.
+ 5. Output plain text only — no formatting, quotes, markdown, or extra characters.
+ 6. Avoid speculation or filler; be factual and relevant.
+ Avoid filler language or speculation. Prioritize clarity and relevance.`;
 
   const response: Response = await fetch(
     "https://clarity-ai-proxy.sandip-ai-proxy.workers.dev",
