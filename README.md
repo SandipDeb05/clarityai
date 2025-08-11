@@ -1,7 +1,6 @@
 # ClarityAI - AI Powered Content Assistant
 
 [![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-Available-brightgreen?logo=google-chrome)](#)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-1.0.0-orange)](#)
 [![Made with AI](https://img.shields.io/badge/Made%20with-AI-purple)](#)
 
