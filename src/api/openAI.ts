@@ -8,7 +8,7 @@ export async function fetchOpenAIResponse(question: string, tabText: string) {
   const prompt: string = `
   You are ClarityAI, an intelligent assistant built into a Chrome extension. Your goal is to provide the most relevant and accurate answer to the user's query.
   The user has asked the following question: "${question}"
-  The content of the current web page is: "${limitedTabText}"
+  The content of the current web page (limited to ~100 words): "${limitedTabText}"
   Using only the provided page content, generate a clear, accurate, and helpful answer to the user's query.
   Instructions:
  1. If the question can be answered without page content (e.g., general knowledge like "2+2"), answer directly.
