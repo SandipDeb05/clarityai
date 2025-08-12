@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ClarityAI — Privacy Policy</title>
+    <meta
+      name="description"
+      content="Privacy Policy for ClarityAI Chrome extension. Explains what data is accessed, how it is processed, and how we protect user privacy."
+    />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --ink: #0b1220;
+        --muted: #6b7280;
+        --accent: #2563eb;
+        --card: #f8fafc;
+        --maxw: 900px;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+      }
+      .container {
+        max-width: var(--maxw);
+        margin: 36px auto;
+        padding: 28px;
+        background: var(--card);
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(11, 18, 32, 0.06);
+      }
+      header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 1.6rem;
+      }
+      header p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      hr {
+        border: none;
+        border-top: 1px solid rgba(11, 18, 32, 0.06);
+        margin: 20px 0;
+      }
+      h2 {
+        font-size: 1.05rem;
+        margin: 18px 0 8px;
+      }
+      p {
+        line-height: 1.55;
+        margin: 0 0 12px;
+        color: var(--muted);
+      }
+      ul {
+        margin: 0 0 12px 20px;
+        color: var(--muted);
+      }
+      code {
+        background: #eef2ff;
+        padding: 2px 6px;
+        border-radius: 6px;
+        color: var(--accent);
+        font-size: 0.95rem;
+      }
+      .meta {
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+      .footer {
+        margin-top: 22px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(11, 18, 32, 0.04);
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      @media (max-width: 600px) {
+        .container {
+          margin: 18px;
+          padding: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container" role="main">
+      <header>
+        <div>
+          <h1>ClarityAI — Privacy Policy</h1>
+          <p class="meta">Last updated: <strong>August, 2025</strong></p>
+        </div>
+      </header>
+
+      <p>
+        ClarityAI (“we”, “our”, or “the Extension”) is a Chrome browser
+        extension that provides AI-powered answers to user queries by analyzing
+        the content of the active browser tab and combining that context with AI
+        outputs from a secure server-side service. This Privacy Policy explains
+        what data is accessed, how it is used, and how we protect your privacy.
+      </p>
+
+      <h2>1. Scope & Purpose</h2>
+      <p>
+        The Extension has a single purpose: to allow users to ask questions and
+        receive AI-generated responses that are informed by the content of the
+        active web page (when the user explicitly requests it). The Extension’s
+        functionality depends on temporarily accessing the active tab content
+        only when you initiate an action.
+      </p>
+
+      <h2>2. Data We Access and Process</h2>
+      <ul>
+        <li>
+          <strong>Active tab content:</strong> When you trigger the Extension,
+          we may read visible text from the active tab to produce context-aware
+          responses.
+        </li>
+        <li>
+          <strong>User queries:</strong> The question you type is transmitted as
+          part of the request used to generate a response.
+        </li>
+        <li>
+          <strong>Technical metadata:</strong> Minimal metadata (e.g., request
+          timestamps) may be used for processing and debugging; this metadata
+          does not include personal identifiers unless you include them in your
+          query or the page content.
+        </li>
+      </ul>
+
+      <h2>3. How Data Is Processed</h2>
+      <p>
+        When you initiate a request, the Extension sends the active tab content
+        and your query to our server endpoint hosted on Cloudflare Workers. The
+        Cloudflare Worker forwards the request to the Google Gemini API (or
+        other AI model) to generate a text response. The AI response is returned
+        to the extension and displayed to you in the browser.
+      </p>
+
+      <h2>4. Data Storage & Retention</h2>
+      <p>
+        We do not permanently store personal data or the content of your active
+        tabs. All requests are processed in real time; any temporary data held
+        in transit is discarded immediately after the response is generated. We
+        do not build user profiles, sell data, or share your browsing data with
+        third parties for advertising purposes.
+      </p>
+
+      <h2>5. Third-Party Services</h2>
+      <p>
+        The Extension uses the Google Gemini API via a Cloudflare Worker to
+        generate AI responses. This service processes the request and returns
+        generated content. You can review Google’s data and privacy practices
+        here:
+        <a
+          href="https://policies.google.com/privacy"
+          target="_blank"
+          rel="noopener"
+          >Google Privacy Policy</a
+        >.
+      </p>
+
+      <h2>6. Permissions Justification</h2>
+      <ul>
+        <li>
+          <strong>activeTab:</strong> Required to access the content of the
+          current tab only when you explicitly ask the Extension to process that
+          page.
+        </li>
+        <li>
+          <strong>Host permissions:</strong> Requested to enable script
+          execution on pages where the Extension is active; usage is limited to
+          user-initiated actions and the minimum scopes required.
+        </li>
+        <li>
+          <strong>Scripting:</strong> The Extension injects scripts to read
+          visible content and extract text for analysis; these scripts do not
+          exfiltrate data outside of the described request flow.
+        </li>
+      </ul>
+
+      <h2>7. Remote Code</h2>
+      <p>
+        The Extension does not execute remote JavaScript at runtime. All
+        executable code is packaged within the extension. External network
+        requests are limited to API calls that return structured data (JSON or
+        text) processed by our code—no external scripts are downloaded and
+        executed in the browser.
+      </p>
+
+      <h2>8. Security</h2>
+      <p>
+        All network communications between the extension, our Cloudflare Worker,
+        and third-party services use HTTPS/TLS. We follow industry-standard
+        practices to protect data in transit and implement reasonable safeguards
+        to minimize risk. However, no system can be completely secure; do not
+        include sensitive personal information in your queries or on web pages
+        you ask the Extension to analyze.
+      </p>
+
+      <h2>9. Your Choices</h2>
+      <ul>
+        <li>
+          You control when the Extension reads a page: access is only performed
+          on explicit user action.
+        </li>
+        <li>
+          To prevent access, disable or remove the Extension via Chrome’s
+          extensions page (<code>chrome://extensions/</code>).
+        </li>
+        <li>
+          If you prefer not to use remote AI services, do not initiate queries
+          that send content to our server.
+        </li>
+      </ul>
+
+      <h2>10. Children</h2>
+      <p>
+        The Extension is not intended for use by children under the age of 13.
+        We do not knowingly collect information from children; if you believe we
+        have inadvertently collected data from a child, contact us to request
+        deletion.
+      </p>
+
+      <h2>11. Changes to This Policy</h2>
+      <p>
+        We may update this Privacy Policy periodically. The “Last updated” date
+        at the top will reflect any changes. Continued use of the Extension
+        after changes indicates acceptance of the revised policy.
+      </p>
+
+      <h2>12. Contact</h2>
+      <p>
+        If you have questions or concerns about this Privacy Policy or data
+        handling practices, please contact us at:
+        <a href="mailto:sandipdeb05@gmail.com">sandipdeb05@gmail.com</a>
+      </p>
+
+      <div class="footer">
+        <p>© <span id="year"></span> ClarityAI. All rights reserved.</p>
+      </div>
+    </main>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
