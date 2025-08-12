@@ -3,7 +3,7 @@
   "name": "ClarityAI",
   "description": "Your AI assistant for any webpage. Ask questions, get summaries, and explore content effortlessly",
   "version": "1.0.0",
-  "permissions": ["scripting", "activeTab", "storage"],
+  "permissions": ["scripting", "activeTab"],
   "host_permissions": ["<all_urls>"],
   "action": {
     "default_popup": "index.html",
