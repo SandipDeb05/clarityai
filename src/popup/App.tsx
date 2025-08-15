@@ -39,7 +39,9 @@ function App() {
   return (
     <main className="main__container">
       <div className="heading__wrapper">
-        <h2 className="heading">ClarityAI: Your Web assistant</h2>
+        <h2 className="heading poppins-medium">
+          ClarityAI: Your Web assistant
+        </h2>
         <div role="button" className="close__btn" onClick={handleClosePopup}>
           &times;
         </div>
@@ -58,7 +60,13 @@ function App() {
         {loading ? "Loading..." : "Get Clarity"}
       </button>
 
-      {loading && <p className="loading__text">Analyzing...</p>}
+      {loading && (
+        <div className="loading-skeleton">
+          <div className="skeleton-line"></div>
+          <div className="skeleton-line"></div>
+          <div className="skeleton-line short"></div>
+        </div>
+      )}
 
       {response && (
         <div className="response__wrapper">
