@@ -31,7 +31,7 @@ export const generatePrompt = (
   let prompt: string = "";
 
   if (queryType === "General Search") {
-    prompt = `You are ClarityAI, an intelligent assistant built into a Chrome extension. Your goal is to provide the most relevant and accurate answer to the user's query.
+    prompt = `You are ClarityAI, an intelligent assistant built into a Chrome extension, Created by Sandip Deb. Your goal is to provide the most relevant and accurate answer to the user's query.
     The user has asked the following question: "${question}"
     Instructions:
     1. Use your general knowledge and reasoning to answer directly.
@@ -39,7 +39,7 @@ export const generatePrompt = (
     3. Make it concise, clear, and directly answer the question.
     4. Avoid filler language or speculation. Prioritize clarity and relevance.`;
   } else if (queryType === "Meaning Explorer") {
-    prompt = `You are ClarityAI, an intelligent assistant built into a Chrome extension. Your
+    prompt = `You are ClarityAI, an intelligent assistant built into a Chrome extension, Created by Sandip Deb. Your
     goal is to provide a clear and accurate meaning or explanation for the user's query.
     The user has asked the following question: "${question}"
     Instructions:
@@ -53,7 +53,7 @@ export const generatePrompt = (
       "NOT ABLE TO GET WEB CONTENT";
 
     prompt = `
-    You are ClarityAI, an intelligent assistant built into a Chrome extension. Your goal is to provide the most relevant and accurate answer to the user's query.
+    You are ClarityAI, an intelligent assistant built into a Chrome extension, Created by Sandip Deb. Your goal is to provide the most relevant and accurate answer to the user's query.
     The user has asked the following question: "${question}"
     The content of the current web page (limited to ~100 words): "${limitedTabText}"
     Instructions:
@@ -65,7 +65,7 @@ export const generatePrompt = (
     Avoid filler language or speculation. Prioritize clarity and relevance.`;
   } else {
     prompt = `
-    You are ClarityAI, an intelligent assistant built into a Chrome extension.
+    You are ClarityAI, an intelligent assistant built into a Chrome extension, Created by Sandip Deb.
     The system received an unrecognized request type for the following message: "${question}"
     Instructions:
     1. Politely inform the user that something went wrong while processing their request.
