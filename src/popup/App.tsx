@@ -7,11 +7,17 @@ function App() {
   const [response, setResponse] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [typeOfSearch, setTypeOfSearch] = useState<string>("General Search");
+  const [error, setError] = useState<string>("");
 
   const handleTask = async () => {
-    if (!question?.trim()) return;
+    if (!question?.trim()) {
+      setResponse("");
+      setError("What would you like to search?");
+      return;
+    }
     setLoading(true);
     setResponse("");
+    setError("");
 
     switch (typeOfSearch) {
       case "General Search": {
@@ -46,11 +52,15 @@ function App() {
           async (response) => {
             try {
               const tabText: string = response.text;
+              const errorStatus: string | null = response.errorStatus || null;
               const answer: string = await fetchGeminiAIResponse(
                 question,
                 tabText,
                 { queryType: "Whole Page Search" }
               );
+              if (errorStatus && errorStatus === "404") {
+                setError("Failed to load content from the web.");
+              }
               setResponse(answer);
             } catch (e: unknown) {
               setResponse("An error occurred. Please try again.");
@@ -103,7 +113,7 @@ function App() {
 
       <div className="field">
         <label htmlFor="type" className="field__label">
-          Query Type
+          📣 Query Type
         </label>
         <select id="type" className="select" onChange={handleTypeChange}>
           <option value="General Search">General Search</option>
@@ -112,7 +122,11 @@ function App() {
         </select>
       </div>
 
-      <button onClick={handleTask}>{loading ? "Analyzing…" : "Search"}</button>
+      {!question?.trim() && error && <div className="error__msg">{error}</div>}
+
+      <button onClick={handleTask}>
+        {loading ? "🤔 Analyzing…" : "Search"}
+      </button>
 
       {loading && (
         <div className="loading-skeleton">
@@ -124,7 +138,12 @@ function App() {
 
       {response && (
         <div className="response__wrapper">
-          <h3 className="response__title">ClarityAI Insight</h3>
+          <h3 className="response__title poppins-medium">
+            🤖 ClarityAI Insight
+          </h3>
+          {question?.trim() && error && (
+            <div className="error__msg">{error}</div>
+          )}
           <div className="response__popup">{response}</div>
         </div>
       )}

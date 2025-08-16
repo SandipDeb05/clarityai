@@ -11,10 +11,11 @@ chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
           if (chrome.runtime.lastError) {
             sendResponse({
               text: "Page content unavailable. GEMINI, ignore page context and answer using your general knowledge and reasoning power.",
+              errorStatus: "404",
             });
             return;
           }
-          sendResponse({ text: response?.text || "" });
+          sendResponse({ text: response?.text || "", errorStatus: null });
         }
       );
     });
