@@ -10,6 +10,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 8px 0;
+  border-bottom: 2px solid #2563eb;
 }
 
 .heading {
@@ -131,15 +133,15 @@ button:hover {
 }
 
 .close__btn {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 25px;
   color: #555;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
 }
 
 .close__btn:hover {
   color: #e74c3c;
+  font-weight: bold;
 }
 
 .poppins-thin {

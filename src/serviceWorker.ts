@@ -9,10 +9,6 @@ chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
         { action: "GET_PAGE_TEXT" },
         (response) => {
           if (chrome.runtime.lastError) {
-            console.warn(
-              "Content script not available:",
-              chrome.runtime.lastError.message
-            );
             sendResponse({
               text: "Page content unavailable. GEMINI, ignore page context and answer using your general knowledge and reasoning power.",
             });

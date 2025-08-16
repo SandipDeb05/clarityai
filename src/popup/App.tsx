@@ -82,7 +82,7 @@ function App() {
   return (
     <main className="main__container">
       <div className="heading__wrapper">
-        <h2 className="heading poppins-medium">ClarityAI</h2>
+        <h2 className="heading poppins-bold">ClarityAI</h2>
         <div role="button" className="close__btn" onClick={handleClosePopup}>
           &times;
         </div>
