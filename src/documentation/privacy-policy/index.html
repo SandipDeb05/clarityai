@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="./icon16.png" />
     <title>ClarityAI — Privacy Policy</title>
     <meta
       name="description"
@@ -107,48 +108,58 @@
       </header>
 
       <p>
-        ClarityAI (“we”, “our”, or “the Extension”) is a Chrome browser
-        extension that provides AI-powered answers to user queries by analyzing
-        the content of the active browser tab and combining that context with AI
-        outputs from a secure server-side service. This Privacy Policy explains
-        what data is accessed, how it is used, and how we protect your privacy.
+        ClarityAI (“we,” “our,” or “the Extension”) is a Chrome browser
+        extension that provides AI-powered answers to user queries. In addition
+        to analyzing the content of the active browser tab, the Extension also
+        supports general questions and includes a Meaning Explorer feature for
+        understanding the meaning of words, phrases, and sentences. This Privacy
+        Policy explains what data is accessed, how it is used, and how we
+        protect your privacy.
       </p>
 
       <h2>1. Scope & Purpose</h2>
       <p>
         The Extension has a single purpose: to allow users to ask questions and
-        receive AI-generated responses that are informed by the content of the
-        active web page (when the user explicitly requests it). The Extension’s
-        functionality depends on temporarily accessing the active tab content
-        only when you initiate an action.
+        receive AI-generated responses. These responses may be informed by the
+        content of the active web page (when the user explicitly requests it),
+        or they may address general questions independent of browsing activity.
+        In addition, the Extension includes a Meaning Explorer feature, enabling
+        users to explore the meaning of words, phrases, and sentences. The
+        Extension's functionality depends on temporarily accessing the active
+        tab content only when you initiate an action.
       </p>
 
       <h2>2. Data We Access and Process</h2>
       <ul>
         <li>
-          <strong>Active tab content:</strong> When you trigger the Extension,
-          we may read visible text from the active tab to produce context-aware
-          responses.
+          <strong>Active tab content:</strong> When you explicitly trigger the
+          Extension for context-based responses, we may read visible text from
+          the active browser tab to provide more relevant answers. This access
+          is temporary and occurs only when you initiate the action.
         </li>
         <li>
-          <strong>User queries:</strong> The question you type is transmitted as
-          part of the request used to generate a response.
+          <strong>User queries:</strong> The questions you type—including
+          general inquiries and Meaning Explorer requests (e.g., definitions of
+          words, phrases, or sentences)—are transmitted as part of the request
+          to generate a response.
         </li>
         <li>
-          <strong>Technical metadata:</strong> Minimal metadata (e.g., request
-          timestamps) may be used for processing and debugging; this metadata
-          does not include personal identifiers unless you include them in your
-          query or the page content.
+          <strong>Technical metadata:</strong> Minimal metadata (such as request
+          timestamps) may be processed for performance monitoring and debugging.
+          This metadata does not include personal identifiers unless you
+          explicitly provide them in your query or within the page content.
         </li>
       </ul>
 
       <h2>3. How Data Is Processed</h2>
       <p>
-        When you initiate a request, the Extension sends the active tab content
-        and your query to our server endpoint hosted on Cloudflare Workers. The
-        Cloudflare Worker forwards the request to the Google Gemini API (or
-        other AI model) to generate a text response. The AI response is returned
-        to the extension and displayed to you in the browser.
+        When you initiate a request, the Extension may send the active tab
+        content (if you explicitly request a context-based answer) and your
+        query—including general questions or Meaning Explorer inputs—to our
+        server endpoint hosted on Cloudflare Workers. The Cloudflare Worker
+        securely forwards the request to the Google Gemini API (or another AI
+        model) to generate a text response. The AI-generated response is then
+        returned to the Extension and displayed to you directly in the browser.
       </p>
 
       <h2>4. Data Storage & Retention</h2>
@@ -164,7 +175,7 @@
       <p>
         The Extension uses the Google Gemini API via a Cloudflare Worker to
         generate AI responses. This service processes the request and returns
-        generated content. You can review Google’s data and privacy practices
+        generated content. You can review Google's data and privacy practices
         here:
         <a
           href="https://policies.google.com/privacy"
@@ -185,11 +196,6 @@
           <strong>Host permissions:</strong> Requested to enable script
           execution on pages where the Extension is active; usage is limited to
           user-initiated actions and the minimum scopes required.
-        </li>
-        <li>
-          <strong>Scripting:</strong> The Extension injects scripts to read
-          visible content and extract text for analysis; these scripts do not
-          exfiltrate data outside of the described request flow.
         </li>
       </ul>
 
@@ -219,7 +225,7 @@
           on explicit user action.
         </li>
         <li>
-          To prevent access, disable or remove the Extension via Chrome’s
+          To prevent access, disable or remove the Extension via Chrome's
           extensions page (<code>chrome://extensions/</code>).
         </li>
         <li>
