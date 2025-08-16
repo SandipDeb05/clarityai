@@ -22,7 +22,7 @@ export async function fetchOpenAIResponse(question: string, tabText: string) {
     {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
+        Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`, // WILL NOT WORK
         "Content-Type": "application/json",
       },
       body: JSON.stringify({

@@ -20,6 +20,10 @@
   color: #1f2937;
 }
 
+.text-primary {
+  color: #1e40af;
+}
+
 textarea.question__popup {
   width: 100%;
   height: 100px;

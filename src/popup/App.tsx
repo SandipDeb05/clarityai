@@ -6,7 +6,7 @@ function App() {
   const [question, setQuestion] = useState<string>("");
   const [response, setResponse] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const [typeOfSearch, setTypeOfSearch] = useState<string>("ask_anything");
+  const [typeOfSearch, setTypeOfSearch] = useState<string>("General Search");
 
   const handleTask = async () => {
     if (!question?.trim()) return;
@@ -14,10 +14,10 @@ function App() {
     setResponse("");
 
     switch (typeOfSearch) {
-      case "ask_anything": {
+      case "General Search": {
         try {
           const answer = await fetchGeminiAIResponse(question, "", {
-            queryType: "ask_anything",
+            queryType: "General Search",
           });
           setResponse(answer);
         } catch (e) {
@@ -27,10 +27,10 @@ function App() {
         }
         return;
       }
-      case "disctonary": {
+      case "Meaning Explorer": {
         try {
           const answer = await fetchGeminiAIResponse(question, "", {
-            queryType: "disctonary",
+            queryType: "Meaning Explorer",
           });
           setResponse(answer);
         } catch (e) {
@@ -40,7 +40,7 @@ function App() {
         }
         return;
       }
-      case "whole_page_search": {
+      case "Whole Page Search": {
         chrome.runtime.sendMessage(
           { action: "FETCH_TAB_TEXT" },
           async (response) => {
@@ -49,7 +49,7 @@ function App() {
               const answer: string = await fetchGeminiAIResponse(
                 question,
                 tabText,
-                { queryType: "whole_page_search" }
+                { queryType: "Whole Page Search" }
               );
               setResponse(answer);
             } catch (e: unknown) {
@@ -82,7 +82,10 @@ function App() {
   return (
     <main className="main__container">
       <div className="heading__wrapper">
-        <h2 className="heading poppins-bold">ClarityAI</h2>
+        <h2 className="heading">
+          <span className="text-primary poppins-semibold">ClarityAI:</span>{" "}
+          <span className="poppins-medium">{typeOfSearch}</span>
+        </h2>
         <div role="button" className="close__btn" onClick={handleClosePopup}>
           &times;
         </div>
@@ -100,18 +103,16 @@ function App() {
 
       <div className="field">
         <label htmlFor="type" className="field__label">
-          Type
+          Query Type
         </label>
         <select id="type" className="select" onChange={handleTypeChange}>
-          <option value="ask_anything">Ask anything</option>
-          <option value="disctonary">Disctonary</option>
-          <option value="whole_page_search">Whole page search</option>
-          {/* <option value="ask_about_section">Ask about a section</option> */}
-          {/* <option value="web_search">Web search</option> */}
+          <option value="General Search">General Search</option>
+          <option value="Meaning Explorer">Meaning Explorer</option>
+          <option value="Whole Page Search">Whole Page Search</option>
         </select>
       </div>
 
-      <button onClick={handleTask}>{loading ? "Loading..." : "ASK"}</button>
+      <button onClick={handleTask}>{loading ? "Analyzing…" : "Search"}</button>
 
       {loading && (
         <div className="loading-skeleton">
