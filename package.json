@@ -1,7 +1,8 @@
 {
   "name": "clarityai",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "description": "Your AI assistant for web and beyond — ask questions, get summaries, explore meanings, and learn effortlessly",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -28,5 +29,7 @@
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.39.0",
     "vite": "^7.1.0"
-  }
+  },
+  "homepage": "https://clarity-ai-chrome-extension.netlify.app/",
+  "author": "Sandip Deb"
 }

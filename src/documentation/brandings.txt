@@ -1,0 +1,46 @@
+ClarityAI
+
+// TODO: SHORT DESCRIPTION
+Your AI assistant for web and beyond — ask questions, get summaries, explore meanings, and learn effortlessly.
+
+// TODO: DESCRIPTION
+AI-Powered Content & Knowledge Assistant
+Boost your productivity and understanding with our AI-powered Chrome extension — your intelligent companion for browsing, learning, and exploring.
+
+Seamlessly interact with any webpage or ask beyond it:
+
+Ask Questions: Get instant, context-aware answers from the current page or ask general questions on any topic.
+
+Summarize Content: Quickly distill long articles, research papers, or news into concise, actionable summaries.
+
+Meaning Explorer: Understand the meaning of words, phrases, or sentences instantly.
+
+Explore Deeper: Uncover related insights, explanations, and perspectives effortlessly.
+
+Whether you’re conducting research, learning new concepts, or just curious, this extension transforms how you access knowledge — making every interaction smarter, faster, and more engaging.
+
+Key Features:
+
+Context-aware AI responses & general Q&A
+
+One-click content summarization
+
+Meaning Explorer for words, phrases, and sentences
+
+Insightful exploration of topics
+
+User-friendly interface for seamless interaction
+
+Harness the power of AI to work, learn, and explore with greater efficiency — all directly from your browser.
+
+// FIXME: SCREENSHORTS
+
+// FIXME: PERMISSIONS
+Single purpose:
+activeTab justification:
+Host permission justification:
+
+// FIXME: URLs
+Home page: https://clarity-ai-chrome-extension.netlify.app/
+Privacy policy: https://idyllic-caramel-80a532.netlify.app/
+chrome extension: 
