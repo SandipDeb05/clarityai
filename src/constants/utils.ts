@@ -32,7 +32,7 @@ export const generatePrompt = (
 
   if (queryType === "General Search") {
     prompt = `You are ClarityAI, an intelligent assistant built into a Chrome extension, Created by Sandip Deb. Your goal is to provide the most relevant and accurate answer to the user's query.
-    The user has asked the following question: "${question}"
+    The user has asked the following question: "${question?.trim()}"
     Instructions:
     1. Use your general knowledge and reasoning to answer directly.
     2. Keep the answer under 60 words. Output in plain text (no formatting, markdown, or quotes).
@@ -41,7 +41,7 @@ export const generatePrompt = (
   } else if (queryType === "Meaning Explorer") {
     prompt = `You are ClarityAI, an intelligent assistant built into a Chrome extension, Created by Sandip Deb. Your
     goal is to provide a clear and accurate meaning or explanation for the user's query.
-    The user has asked the following question: "${question}"
+    The user has asked the following question: "${question?.trim()}"
     Instructions:
     1. Determine if the query is a word, phrase, sentence, or short paragraph.
     2. Provide a concise and precise definition or explanation as if you are a dictionary.
@@ -54,7 +54,7 @@ export const generatePrompt = (
 
     prompt = `
     You are ClarityAI, an intelligent assistant built into a Chrome extension, Created by Sandip Deb. Your goal is to provide the most relevant and accurate answer to the user's query.
-    The user has asked the following question: "${question}"
+    The user has asked the following question: "${question?.trim()}"
     The content of the current web page (limited to ~100 words): "${limitedTabText}"
     Instructions:
     1. If the question can be answered using general knowledge or reasoning, answer directly — do not limit yourself to the page content.
@@ -66,7 +66,7 @@ export const generatePrompt = (
   } else {
     prompt = `
     You are ClarityAI, an intelligent assistant built into a Chrome extension, Created by Sandip Deb.
-    The system received an unrecognized request type for the following message: "${question}"
+    The system received an unrecognized request type for the following message: "${question?.trim()}"
     Instructions:
     1. Politely inform the user that something went wrong while processing their request.
     2. Suggest they try again or rephrase their query.
@@ -75,5 +75,5 @@ export const generatePrompt = (
     Avoid filler language or speculation. Prioritize clarity and relevance.`;
   }
 
-  return prompt;
+  return prompt.trim();
 };
