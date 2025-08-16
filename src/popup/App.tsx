@@ -118,7 +118,7 @@ function App() {
         <select id="type" className="select" onChange={handleTypeChange}>
           <option value="General Search">General Search</option>
           <option value="Meaning Explorer">Meaning Explorer</option>
-          <option value="Whole Page Search">Whole Page Search</option>
+          <option value="Whole Page Search">Whole Page Search (BETA)</option>
         </select>
       </div>
 
