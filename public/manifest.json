@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "ClarityAI",
   "description": "Your AI assistant for any webpage. Ask questions, get summaries, and explore content effortlessly",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "permissions": ["activeTab"],
   "host_permissions": ["<all_urls>"],
   "action": {
